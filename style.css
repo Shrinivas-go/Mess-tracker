@@ -116,11 +116,4 @@ input:focus {
   border-radius:6px;
   cursor:pointer;
 }
-#login-section{
-   width: 500px;
-      height: 300px;
-      background-image: url("background.jpeg");
-      background-size: cover;       /* Scales image to cover the box */
-      background-position: center;  /* Centers the image */
-      background-repeat: no-repeat; /* Prevents tiling */
-}
+
