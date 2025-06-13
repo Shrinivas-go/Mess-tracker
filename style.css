@@ -1,19 +1,4 @@
 /* Reset & global */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-image: url('background.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #333;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f0f4f8;
-  color: #333;
-}
 
 .card {
   background: white;
