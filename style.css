@@ -1,4 +1,8 @@
 /* Reset & global */
+body {
+  background: url('background.jpeg') no-repeat center center fixed;
+  background-size: cover;
+}
 
 .card {
   background: white;
