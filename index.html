@@ -71,13 +71,17 @@
       <button onclick="resetAttendance()">Reset Attendance</button>
     </div>
 
-    <div id="admin-menu" class="admin-box hidden blue">
-      <h3>Upload Menu</h3>
-      <input id="input-breakfast" placeholder="Breakfast menu" />
-      <input id="input-lunch" placeholder="Lunch menu" />
-      <input id="input-dinner" placeholder="Dinner menu" />
-      <button onclick="updateMenu()">Upload</button>
-    </div>
+   <div id="admin-menu" class="admin-box hidden blue">
+  <h3>Upload Menu</h3>
+  <input id="input-breakfast" placeholder="Breakfast menu" />
+  <input id="input-lunch" placeholder="Lunch menu" />
+  <input id="input-dinner" placeholder="Dinner menu" />
+  <div class="btn-group">
+    <button onclick="updateMenu()">Upload</button>
+    <button onclick="resetMenu()" class="secondary">Reset Menu</button>
+  </div>
+</div>
+
 
     <div id="admin-taker" class="admin-box hidden yellow">
       <h3>Food Taker Alert</h3>
