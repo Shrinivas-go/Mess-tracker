@@ -159,6 +159,7 @@ function loadMenuFromFirebase() {
   });
 }
 
+
 function resetMenu() {
   const { ref, set } = window.firebaseFunctions;
   if (confirm("Are you sure you want to reset the menu?")) {
@@ -169,5 +170,5 @@ function resetMenu() {
   }
 }
 
-loadMenuFromFirebase();
+
 
