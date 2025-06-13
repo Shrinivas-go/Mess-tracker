@@ -54,14 +54,18 @@ function login() {
 }
 
 function updateMenu() {
+  const { ref, set } = window.firebaseFunctions;
+
   ["breakfast", "lunch", "dinner"].forEach(m =>
     menu[m] = document.getElementById(`input-${m}`).value
   );
-  ["breakfast", "lunch", "dinner"].forEach(m =>
-    document.getElementById(`menu-${m}`).innerText = menu[m]
-  );
-  alert("Menu updated!");
+
+  set(ref(window.db, 'menu'), menu)
+    .then(() => {
+      alert("Menu updated!");
+    });
 }
+
 
 function sendFoodMessage() {
   const num = document.getElementById("contact-number").value;
@@ -141,3 +145,29 @@ function markAttendance(meal) {
     }
   });
 }
+
+function loadMenuFromFirebase() {
+  const { ref, onValue } = window.firebaseFunctions;
+  const menuRef = ref(window.db, 'menu');
+
+  onValue(menuRef, (snapshot) => {
+    const data = snapshot.val() || {};
+    menu = data;
+    ["breakfast", "lunch", "dinner"].forEach(m => {
+      document.getElementById(`menu-${m}`).innerText = menu[m] || "";
+    });
+  });
+}
+
+function resetMenu() {
+  const { ref, set } = window.firebaseFunctions;
+  if (confirm("Are you sure you want to reset the menu?")) {
+    const emptyMenu = { breakfast: "", lunch: "", dinner: "" };
+    set(ref(window.db, 'menu'), emptyMenu).then(() => {
+      alert("Menu has been reset.");
+    });
+  }
+}
+
+loadMenuFromFirebase();
+
