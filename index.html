@@ -101,30 +101,35 @@
     <button class="secondary" onclick="goBack()">Exit</button>
   </section>
 
-  <!-- Firebase Setup -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
-    import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+  import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyCQU-G7gCBdD5_jrWBitn_pIBIXS_USRq8",
-      authDomain: "mess-management-92ffd.firebaseapp.com",
-      databaseURL: "https://mess-management-92ffd-default-rtdb.firebaseio.com",
-      projectId: "mess-management-92ffd",
-      storageBucket: "mess-management-92ffd.appspot.com",
-      messagingSenderId: "1061949284665",
-      appId: "1:1061949284665:web:cfa73451ce95d737c308e8",
-      measurementId: "G-5WHZ0MPNF4"
-    };
+  const firebaseConfig = {
+    apiKey: "AIzaSyCQU-G7gCBdD5_jrWBitn_pIBIXS_USRq8",
+    authDomain: "mess-management-92ffd.firebaseapp.com",
+    databaseURL: "https://mess-management-92ffd-default-rtdb.firebaseio.com",
+    projectId: "mess-management-92ffd",
+    storageBucket: "mess-management-92ffd.appspot.com",
+    messagingSenderId: "1061949284665",
+    appId: "1:1061949284665:web:cfa73451ce95d737c308e8",
+    measurementId: "G-5WHZ0MPNF4"
+  };
 
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const db = getDatabase(app);
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getDatabase(app);
 
-    window.db = db;
-    window.firebaseFunctions = { ref, set, get, onValue };
-  </script>
+  window.db = db;
+  window.firebaseFunctions = { ref, set, get, onValue };
+
+  // ✅ Call this only AFTER db is defined
+  window.addEventListener('DOMContentLoaded', () => {
+    loadMenuFromFirebase();
+  });
+</script>
+
 
   <!-- Main App Logic -->
   <script src="script.js"></script>
