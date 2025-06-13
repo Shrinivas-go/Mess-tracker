@@ -1,8 +1,9 @@
 /* Reset & global */
-body {
+/* body {
   background: url('background.jpeg') no-repeat center center fixed;
   background-size: cover;
-}
+  opacity:0.5;
+} */
 
 .card {
   background: white;
